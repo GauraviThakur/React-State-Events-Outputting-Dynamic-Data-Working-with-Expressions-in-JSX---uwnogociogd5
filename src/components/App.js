@@ -5,12 +5,13 @@ import Tasks from "./Tasks";
 function App() {
 	const [tasks, setTasks] = useState([])
 	const [textArea, setTextArea] = useState('')
+
 	const addTask = () => {
+		if (textArea === '') return
 		setTasks([...tasks, textArea])
 		setTextArea('')
 	}
 	const onSave = (event) => {
-		if (event.target.value === '') return
 		setTextArea(event.target.value)
 	}
 	return (
