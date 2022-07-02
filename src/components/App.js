@@ -9,11 +9,15 @@ function App() {
 		setTasks([...tasks, textArea])
 		setTextArea('')
 	}
+	const onSave = (event) => {
+		if (event.target.value === '') return
+		setTextArea(event.target.value)
+	}
 	return (
 		<div id="main">
-			<textarea id="task" onChange={(event) => setTextArea(event.target.value)} value={textArea} />
+			<textarea id="task" onChange={onSave} value={textArea} />
 			<button id="btn" onClick={addTask}>Add task</button>
-			<Tasks tasks={tasks} setTasks={setTasks}/>
+			<Tasks tasks={tasks} setTasks={setTasks} />
 		</div>
 	);
 }
